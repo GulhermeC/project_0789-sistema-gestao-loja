@@ -6,7 +6,7 @@ public class Produto implements Descontavel {
 
     public Produto() {
     }
-    
+
     public Produto(String nome, double preco, int quantidadeEmStock, String categoria) {
         this.nome = nome;
         this.preco = preco;
@@ -51,6 +51,9 @@ public class Produto implements Descontavel {
     }
 
     public String getInfo() {
-        return "Nome: " + getNome() + "\nPreco: " + getPreco() + "\nQuantidade em stock: " + getQuantidadeEmStock() + "\nCategoria: " + getCategoria() + "\n";
+        return "Produto: " + getNome()
+                + "\n  Preço: " + getPreco()
+                + "\n  Stock: " + getQuantidadeEmStock()
+                + "\n  Categoria: " + getCategoria();
     }
 }

@@ -1,17 +1,22 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Compra {
     private Cliente cliente;
     private Produto produto;
-    private int valorTotal;
+    private double valorTotal;
     private int quantidade;
+    private LocalDateTime data;
     
     public Compra() {
     }
     
-    public Compra(Cliente cliente, Produto produto, int valorTotal, int quantidade) {
+    public Compra(Cliente cliente, Produto produto, double valorTotal, int quantidade) {
         this.cliente = cliente;
         this.produto = produto;
         this.valorTotal = valorTotal;
         this.quantidade = quantidade;
+        this.data = LocalDateTime.now();
     }
     
     public Cliente getCliente() {
@@ -30,11 +35,11 @@ public class Compra {
         this.produto = produto;
     }
     
-    public int getValorTotal() {
+    public double getValorTotal() {
         return valorTotal;
     }
     
-    public void setValorTotal(int valorTotal) {
+    public void setValorTotal(double valorTotal) {
         this.valorTotal = valorTotal;
     }
     
@@ -47,6 +52,18 @@ public class Compra {
     }
 
     public String getInfo() {
-        return "Cliente: " + getCliente().getInfo() + "\nProduto: " + getProduto().getInfo() + "\nQuantidade: " + getQuantidade() + "\nValor Total: " + getValorTotal() + "\n";
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+
+        return "Compra"
+                + "\n  Cliente: " + getCliente().getNome()
+                + "\n  Produto: " + getProduto().getNome()
+                + "\n  Quantidade: " + getQuantidade()
+                + "\n  Valor total: " + getValorTotal()
+                + "\n  Data: " + getData().format(formato)
+                + "\n";
+    }
+
+    public LocalDateTime getData() {
+        return data;
     }
 }

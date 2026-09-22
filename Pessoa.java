@@ -1,9 +1,6 @@
 public class Pessoa {
     protected String nome;
     protected int contacto;
-
-    public Pessoa() {
-    }
     
     public Pessoa(String nome, int contacto) {
         this.nome = nome;

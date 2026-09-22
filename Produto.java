@@ -4,9 +4,6 @@ public class Produto implements Descontavel {
     private int quantidadeEmStock;
     private String categoria;
 
-    public Produto() {
-    }
-
     public Produto(String nome, double preco, int quantidadeEmStock, String categoria) {
         this.nome = nome;
         this.preco = preco;
@@ -47,7 +44,15 @@ public class Produto implements Descontavel {
     }
 
     public double aplicarDesconto(double percentagem) {
-        return preco * (1 - percentagem / 100);
+        if (percentagem < 0 || percentagem > 100) {
+            return -1;
+        }
+
+        double novoPreco = preco * (1 - percentagem / 100);
+
+        setPreco(novoPreco);
+
+        return novoPreco;
     }
 
     public String getInfo() {

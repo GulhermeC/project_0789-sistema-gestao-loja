@@ -8,9 +8,6 @@ public class Compra {
     private int quantidade;
     private LocalDateTime data;
     
-    public Compra() {
-    }
-    
     public Compra(Cliente cliente, Produto produto, double valorTotal, int quantidade) {
         this.cliente = cliente;
         this.produto = produto;
@@ -51,6 +48,14 @@ public class Compra {
         this.quantidade = quantidade;
     }
 
+    public LocalDateTime getData() {
+        return data;
+    }
+
+    public void setData(LocalDateTime data) {
+        this.data = data;
+    }
+
     public String getInfo() {
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
 
@@ -61,9 +66,5 @@ public class Compra {
                 + "\n  Valor total: " + getValorTotal()
                 + "\n  Data: " + getData().format(formato)
                 + "\n";
-    }
-
-    public LocalDateTime getData() {
-        return data;
     }
 }

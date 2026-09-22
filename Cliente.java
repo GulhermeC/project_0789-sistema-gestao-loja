@@ -1,9 +1,6 @@
 public class Cliente extends Pessoa {
     private double saldo;
 
-    public Cliente() {
-    }
-
     public Cliente(String nome, int contacto, double saldo) {
         super(nome, contacto);
         this.saldo = saldo;
